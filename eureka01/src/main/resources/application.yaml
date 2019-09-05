@@ -1,0 +1,21 @@
+server:
+  port: 8761
+  servlet:
+    context-path: /eureka
+spring:
+  application:
+    name: eureka-serve
+ribbon:
+  eureka:
+    enabled: true
+eureka:
+  server:
+#     防止由于Eureka的机制导致Client被错误显示在线，仅在开发环境使用，生产环境需缓存此信息，防止因网络波动导致服务频繁上下线
+    enable-self-preservation: false
+  client:
+#    不向注册中心注册自己
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+#      defaultZone: http://127.0.0.1:8761/eureka,http://127.0.0.1:8889/eureka
+      defaultZone: http://127.0.0.1:8761/eureka
